@@ -16,4 +16,9 @@ export class CreateCadastroDTO {
     @IsString()
     Valor : string
 
+    @IsString()
+    Imagem: string
+
+    @IsString()
+    Descricao: string
 }

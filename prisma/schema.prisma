@@ -20,6 +20,8 @@ model cadastro_carros{
   Ano String
   Km String
   Valor String
+  Imagem String
+  Descricao String
 }
 
 model login_user {
@@ -29,4 +31,3 @@ model login_user {
   cpf String
   password String
 }
-

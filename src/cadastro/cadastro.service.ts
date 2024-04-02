@@ -10,14 +10,16 @@ export class CadastroService {
 
     }
 
-    async create({Marca, Modelo, Ano, Km, Valor}: CreateCadastroDTO) {
+    async create({Marca, Modelo, Ano, Km, Valor, Imagem, Descricao}: CreateCadastroDTO) {
         return this.prisma.cadastro_carros.create({
             data: {
                 Marca,
                 Modelo,
                 Ano,
                 Km,
-                Valor
+                Valor,
+                Imagem,
+                Descricao
             }
         })
     }
@@ -43,7 +45,7 @@ export class CadastroService {
             }
         })
     }
-    async updatePartial(id: number, {Marca, Modelo, Ano, Km, Valor}:UpdatePathCadastroDTO) {
+    async updatePartial(id: number, {Marca, Modelo, Ano, Km, Valor, Imagem, Descricao}:UpdatePathCadastroDTO) {
         const data: any = {}
         if (!(await this.show(id))){
             throw new NotFoundException(`Usuário ${id} não encontrado`)
@@ -63,6 +65,12 @@ export class CadastroService {
         }
         if (Valor) {
             data.Valor = Valor
+        }
+        if (Imagem) {
+            data.Imagem = Imagem
+        }
+        if (Descricao) {
+            data.Descricao = Descricao
         }
 
         return this.prisma.cadastro_carros.update({

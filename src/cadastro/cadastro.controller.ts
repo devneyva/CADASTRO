@@ -13,8 +13,9 @@ export class CadastroController {
     }
 
     @Post()
-    async create(@Body() { Marca, Modelo, Ano, Km, Valor}: CreateCadastroDTO) {
-        return this.cadastroService.create( {Marca, Modelo, Ano, Km, Valor} )
+    async create(@Body() { Marca, Modelo, Ano, Km, Valor, Imagem, Descricao}: CreateCadastroDTO) {
+        return this.cadastroService.create( {Marca, Modelo, Ano, Km, Valor, Imagem, Descricao
+        } )
     }
 
     @Get()
@@ -43,3 +44,5 @@ export class CadastroController {
         return this.cadastroService.delete(id)
     }
 }
+
+
